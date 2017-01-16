@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  ul#messages-area
+  form#form(onsubmit='return false;')
+    input#new-message(type='text')
+    button(onclick='sendFunction()') Send

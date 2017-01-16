@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title= title
+    script(src='/socket.io/socket.io.js')
+    script(src='https://code.jquery.com/jquery-3.1.1.min.js')
+    script.
+      var socket = io();
+      function sendFunction() {
+          socket.emit('new message', $('#new-message').val());
+          $('#new-message').val('');
+      }
+         socket.on('chat message', function(msg){
+         $('#messages-area').append($('<li>').text(msg));
+      });
+
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    block content
